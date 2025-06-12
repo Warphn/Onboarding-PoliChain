@@ -2,7 +2,7 @@ import "./globals.css";
 import Header from "@/app/components/Header";
 
 export const metadata = {
-  title: "VB – Metal Producer",
+  title: "VB – Producer",
   description: "Site oficial do produtor VB",
 };
 
