@@ -4,8 +4,8 @@ export const metadata = {
 
 export default function PortfolioPage() {
   return (
-    <section className="mx-auto max-w-3xl px-6 py-12 text-[#F2F2F2]">
-      <h1 className="mb-8 text-center text-4xl font-semibold text-[#FFCF00]">
+    <section className="font[var(--font-inter)] mx-auto max-w-3xl px-6 py-12 text-[#F2F2F2]">
+      <h1 className="mb-8 text-center text-4xl text-[#FFCF00]">
         Portfolio
       </h1>
 

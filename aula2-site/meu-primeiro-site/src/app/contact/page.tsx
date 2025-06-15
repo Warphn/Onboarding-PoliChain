@@ -4,8 +4,10 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="mx-auto max-w-lg px-6 py-12 text-[#F2F2F2]">
-      <h1 className="mb-6 text-4xl font-semibold text-[#FFCF00]">Contact</h1>
+    <section className="font[var(--font-inter)] mx-auto max-w-lg px-6 py-12 text-[#F2F2F2]">
+      <h1 className="mb-6 text-4xl text-[#FFCF00]">
+        Contact
+      </h1>
       <p className="mb-4 text-sm text-[#C0C0C0]">
         Send me your feedback or any questions
       </p>

@@ -1,7 +1,13 @@
-import { UnifrakturCook } from 'next/font/google';
+import { Condiment, Inter } from 'next/font/google';
 
-export const blackletter = UnifrakturCook({
+export const condiment = Condiment({
   subsets: ['latin'],
-  weight: ['700'],          // blackletter pesado
-  variable: '--font-blackletter',
+  weight: '400',          // blackletter pesado
+  variable: '--font-condiment',
+});
+
+export const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-inter',
 });

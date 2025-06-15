@@ -1,5 +1,6 @@
 import "./globals.css";
 import Header from "@/app/components/Header";
+import { condiment, inter } from "./fonts";
 
 export const metadata = {
   title: "VB – Producer",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#0F0F0F] text-[#F2F2F2] antialiased">
+      <body 
+      /*className="bg-[#0F0F0F] text-[#F2F2F2] antialiased">*/
+      className={`${condiment.variable} ${inter.className} bg-[#0F0F0F] text-[#F2F2F2] antialiased`}
+      >
         <Header />                       {/* cabeçalho global */}
         <main className="min-h-screen">{children}</main>
       </body>

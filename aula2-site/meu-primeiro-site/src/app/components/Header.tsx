@@ -8,10 +8,12 @@ export default function Header() {
     <header className="flex items-center justify-between px-6 py-4 border-b border-[#C0C0C0]/30 bg-[#0F0F0F]/80 backdrop-blur-sm">
       <Link href="/" className="flex items-center gap-2">
         {/* quando tiver o logo */}
-        <span className="font-semibold tracking-wide text-[#F2F2F2] hover:text-[#FFCF00]">VB</span>
+        <span className="font-inter text-xl tracking-wide text-[#F2F2F2] hover:text-[#FFCF00]">
+          VB
+        </span>
       </Link>
 
-      <nav className="flex gap-4 text-medium">
+      <nav className={"font-inter flex gap-4 text-xl"}>
         <Link href="/portfolio" className="hover:text-[#FFCF00]">
           Portfolio
         </Link>
