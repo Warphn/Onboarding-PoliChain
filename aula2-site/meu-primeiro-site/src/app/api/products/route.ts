@@ -8,7 +8,7 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const body = await req.json();
-  // 👇 validação simplona; troque por zod depois
+
   if (!body.name || !body.priceCents || !body.imageURL)
     return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
 

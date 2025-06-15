@@ -1,4 +1,4 @@
-// src/hooks/useProducts.ts
+
 import useSWR from 'swr';
 import type { Product } from '@prisma/client';
 

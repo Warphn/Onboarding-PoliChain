@@ -4,15 +4,14 @@ import { useRef } from 'react';
 import { useProducts } from '@/app/hooks/useProducts';
 import AddProductForm from './AddProductForm';
 import { condiment } from '@/app/fonts';
-import type { Product } from '@prisma/client';
 
 export default function StorePage() {
-  /* ---------- carrossel ---------- */
+  /* carrossel */
   const railRef = useRef<HTMLDivElement>(null);
   const scrollBy = (px: number) =>
     railRef.current?.scrollBy({ left: px, behavior: 'smooth' });
 
-  /* ---------- dados ---------- */
+  /* dados */
   const { products, loading, error } = useProducts();
 
   return (
@@ -21,10 +20,10 @@ export default function StorePage() {
         Store
       </h1>
 
-      {/* ---------- formulário de adição ---------- */}
+      {/*formulário de adição*/}
       <AddProductForm />
 
-      {/* ---------- estados ---------- */}
+      {/* estados */}
       {loading && <p className="mt-4 text-center text-sm">Carregando…</p>}
       {error && (
         <p className="mt-4 text-center text-sm text-red-500">
@@ -32,7 +31,7 @@ export default function StorePage() {
         </p>
       )}
 
-      {/* ---------- carrossel externo ---------- */}
+      {/*carrossel externo  */}
       {products && products.length > 0 && (
         <div className="relative mt-6 rounded-2xl bg-[#1A1A1A]/90 p-8 shadow-lg shadow-black/40 backdrop-blur-md">
           {/* setas */}
@@ -51,7 +50,7 @@ export default function StorePage() {
             ›
           </button>
 
-          {/* rail rolável */}
+          {}
           <div
             ref={railRef}
             className="
@@ -59,7 +58,7 @@ export default function StorePage() {
               scrollbar-none px-6 py-4 pt-6 snap-x snap-mandatory
               scroll-pl-1 scroll-pr-1
             "
-            style={{ scrollbarWidth: 'none' }} // Firefox
+            style={{ scrollbarWidth: 'none' }} 
           >
             {products.map((p) => (
               <div
@@ -98,7 +97,7 @@ export default function StorePage() {
         </div>
       )}
 
-      {/* caso não haja produtos */}
+      {/*caso não haja produtos*/}
       {products && products.length === 0 && (
         <p className="mt-6 text-center text-sm text-[#C0C0C0]">
           Nenhum produto ainda. Adicione o primeiro!

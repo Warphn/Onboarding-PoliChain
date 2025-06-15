@@ -1,4 +1,3 @@
-// src/app/store/AddProductForm.tsx
 'use client';
 import { useState } from 'react';
 import { useProducts } from '@/app/hooks/useProducts';
@@ -11,7 +10,7 @@ export default function AddProductForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    /* validações simples */
+    
     if (!form.name || !form.price || !form.imageUrl)
       return setMsg('Preencha todos os campos.');
 
@@ -34,12 +33,12 @@ export default function AddProductForm() {
       return;
     }
 
-    mutate();                      // refaz GET
+    mutate();                     
     setForm({ name: '', price: '', imageUrl: '' });
     setMsg('Produto criado ✔︎');
   }
 
-  /* UI */
+
   return (
     <form onSubmit={handleSubmit} className="mb-8 flex flex-col gap-4">
       <input
