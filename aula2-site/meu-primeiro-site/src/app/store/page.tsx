@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { useProducts } from '@/app/hooks/useProducts';
 import AddProductForm from './AddProductForm';
 import { condiment } from '@/app/fonts';
+import Image from 'next/image';
 
 export default function StorePage() {
   /* carrossel */
@@ -70,11 +71,13 @@ export default function StorePage() {
                   border border-transparent hover:border-[#FFCF00]
                 "
               >
-                <img
-                  src={p.imageURL}
+              <Image
+                  src={p.imageURL}        // mesmo campo do banco
                   alt={p.name}
+                  width={288}             // ≅ w-72 × 4
+                  height={160}            // ajuste se quiser
                   className="h-40 w-full rounded-t-xl object-cover"
-                />
+              />
                 <div className="p-4 text-center">
                   <h3
                     className={`${condiment.className} text-lg text-[#F2F2F2] mb-1`}
