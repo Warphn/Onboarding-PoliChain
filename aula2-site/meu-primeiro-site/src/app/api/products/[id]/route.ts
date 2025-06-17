@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 
 export async function PUT(
   request: Request,
-  { params }: any           
+  { params }: { params: { id: string } }   
 ) {
   const body = await request.json();
   const id = Number(params.id);
@@ -20,7 +20,7 @@ export async function PUT(
 
 export async function DELETE(
   _request: Request,
-  { params }: any          
+  { params }: { params: { id: string } }   
 ) {
   await prisma.product.delete({ where: { id: Number(params.id) } });
   return NextResponse.json({ ok: true });
