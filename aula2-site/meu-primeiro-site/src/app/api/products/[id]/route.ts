@@ -1,13 +1,12 @@
-// src/app/api/products/[id]/route.ts
 import { prisma } from '@/app/lib/prisma';
-import { NextResponse, type NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
 
 export async function PUT(
-  req: NextRequest,
-  { params }: { params: { id: string } }    
+  request: Request,
+  { params }: any           
 ) {
-  const body = await req.json();
+  const body = await request.json();
   const id = Number(params.id);
 
   const product = await prisma.product.update({
@@ -20,8 +19,8 @@ export async function PUT(
 
 
 export async function DELETE(
-  _req: NextRequest,
-  { params }: { params: { id: string } }    
+  _request: Request,
+  { params }: any          
 ) {
   await prisma.product.delete({ where: { id: Number(params.id) } });
   return NextResponse.json({ ok: true });
