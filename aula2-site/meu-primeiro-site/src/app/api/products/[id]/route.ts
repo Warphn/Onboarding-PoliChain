@@ -1,26 +1,50 @@
-import { prisma } from "@/app/lib/prisma";
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest } from 'next/server';
+import { prisma } from '@/app/lib/prisma';
 
-export async function PUT(
-  request: Request,
-  { params }: { params: Promise<{ id: string }> }   
+/* ─────────── GET /api/products/:id ─────────── */
+export async function GET(
+  _req: NextRequest,
+  { params }: { params: { id: string } }
 ) {
-  const { id } = await params;                      
-  const body = await request.json();
+  const product = await prisma.product.findUnique({
+    where: { id: Number(params.id) },
+  });
 
-  const product = await prisma.product.update({
-    where: { id: Number(id) },
+  if (!product) {
+    return NextResponse.json({ error: 'Product not found' }, { status: 404 });
+  }
+
+  return NextResponse.json(product); // 200
+}
+
+/* ─────────── PUT /api/products/:id ─────────── */
+export async function PUT(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const body: {
+    name?: string;
+    priceCents?: number;
+    imageURL?: string;
+    description?: string | null;
+  } = await req.json();
+
+  const updated = await prisma.product.update({
+    where: { id: Number(params.id) },
     data: body,
   });
 
-  return NextResponse.json(product);
+  return NextResponse.json(updated);
 }
 
+/* ───────── DELETE /api/products/:id ────────── */
 export async function DELETE(
-  _request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  _req: NextRequest,
+  { params }: { params: { id: string } }
 ) {
-  const { id } = await params;
-  await prisma.product.delete({ where: { id: Number(id) } });
+  await prisma.product.delete({
+    where: { id: Number(params.id) },
+  });
+
   return NextResponse.json({ ok: true });
 }
